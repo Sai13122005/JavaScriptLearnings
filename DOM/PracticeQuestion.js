@@ -1,0 +1,18 @@
+let para1 = document.createElement('p');
+para1.classList.add('para');
+para1.innerText = "Hey! iam red ";
+let b= document.querySelector('body');
+b.appendChild(para1);
+let h3 = document.createElement('h3');
+h3.classList.add('blueHeading');
+h3.innerText = 'hey! iam blue';
+b.insertAdjacentElement("afterbegin", h3);
+let div = document.createElement('div');
+div.classList.add('box');
+b.appendChild(div);
+let h1= document.createElement('h1');
+h1.innerText = "Iam in div";
+let p = document.createElement('p');
+p.innerText = "ME TOO";
+div.appendChild(h1);
+div.appendChild(p);

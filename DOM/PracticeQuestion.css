@@ -1,0 +1,11 @@
+.para{
+    color: red;
+}
+.blueHeading{
+    color: blue;
+}
+.box{
+    border: black solid;
+    background-color: pink;
+    border-radius: 3px;
+}
