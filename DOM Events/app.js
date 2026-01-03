@@ -60,9 +60,25 @@ button.addEventListener('click', function()
 {
     console.dir(this);
     this.style.backgroundColor = 'red';
-})
-
-
+});
+let para = document.querySelector('p');
+let h2 = document.querySelector('h2');
+let h1 = document.querySelector('h1');
+para.addEventListener('click', function()
+{
+    console.dir(this);
+    this.style.backgroundColor = 'red';
+});
+h2.addEventListener('click', function()
+{
+    console.dir(this);
+    this.style.backgroundColor = 'red';
+});
+h1.addEventListener('click', function()
+{
+    console.dir(this);
+    this.style.backgroundColor = 'red';
+});
 let inp = document.querySelector('input');
 inp.addEventListener('keydown', function(event)
 {
