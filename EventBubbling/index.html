@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Event Bubbling</h1>
+    <p>when an event of nested element is trigged then it is also trigged for parent element</p>
+    <p>example:-</p>
+    <div>
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
+    </div>
+    <p>to overcome event bubbling we have to use event.stopPropagation()</p>
+    <script src="app.js"></script>
+</body>
+</html>
