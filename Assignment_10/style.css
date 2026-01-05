@@ -1,0 +1,9 @@
+div{
+    background-color: yellow;
+    border: black solid 1px;
+    height: 100px;
+    width: 100px;
+}
+.btn{
+    background-color: green;
+}
