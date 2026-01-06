@@ -105,14 +105,17 @@ let btn = document.querySelector(".add");
 let ul = document.querySelector("ul");
 btn.addEventListener("click", function()
 {
-    let li = document.createElement("li");
-    li.innerText = input.value;
-    let delbtn = document.createElement('button');
-    delbtn.innerText = "delete";
-    delbtn.classList.add("delete");
-    li.appendChild(delbtn);
-    ul.appendChild(li);
-    input.value = "";
+    if(input.value != "")
+    {
+        let li = document.createElement("li");
+        li.innerText = input.value;
+        let delbtn = document.createElement('button');
+        delbtn.innerText = "delete";
+        delbtn.classList.add("delete");
+        li.appendChild(delbtn);
+        ul.appendChild(li);
+        input.value = "";   
+    }
 });
 ul.addEventListener("click", function(event)
 {
