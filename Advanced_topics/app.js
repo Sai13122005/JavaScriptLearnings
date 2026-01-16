@@ -266,27 +266,158 @@
 
 //refactoring of above color code using promise
 
+// let h1 = document.querySelector("h1");
+// function changeColor(color, delay)
+// {
+//     return new Promise((resolve, reject)=>
+//     {
+//         setTimeout(()=>{
+//             h1.style.color = color;
+//             resolve("Color changed!");
+//         }, delay);
+//     });
+// }
+
+// changeColor("red", 1000)
+// .then((result)=>{
+//     console.log(result);
+//     return changeColor("orange", 1000);
+// })
+// .then((result)=>{
+//     console.log(result);
+//     return changeColor("yellow", 1000);
+// })
+// .then((result)=>{
+//     console.log(result);
+// })
+
+
+//_________________________________________________________________________________________________________________________________
+
+//Async Functions:---------
+
+// //by default it returns a promise object
+// async function SayHello() {
+//     return "Hello";
+// }
+// //console.log(SayHello());
+// SayHello().then(()=>{
+//     console.log("Hello guys!");
+// })
+// //or
+// let hello = async ()=>{
+//     return "hello";
+// }
+// //console.log(hello());
+// hello().then(()=>{
+//     console.log("Namaste!");
+// })
+// // it can also return reject promise
+// //eg
+// async function greet() {
+//     //abc.abc();
+//     //or
+//     throw "some random error";
+//     return "hello";
+// }
+
+// //console.log(greet());
+
+// greet()
+// .then(()=>{
+//     console.log("promise was resolved");
+// })
+// .catch(()=>{
+//     console.log("promise was rejected");
+// })
+//____________________________________________
+
+
+//Await :--
+
+//pauses the execution of its surrounding async function until the promise is settled (resolved or rejected)
+
+
+// function getNum()
+// {
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             let num = Math.floor(Math.random()*10)+1;
+//             console.log(num);
+//             resolve();
+//         }, 1000);
+//     });
+// }
+// async function demo() {
+//     await getNum();  // await pauses the below function calls until it fulfilled
+//     await getNum();
+//     await getNum();
+//     getNum();
+// }
+// demo();
+
+//apply for colorchange
+
+
+// let h1 = document.querySelector("h1");
+
+// function colorchange(color, delay)
+// {
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(() => {
+//             h1.style.color = color;
+//             resolve();
+//         }, delay);
+//     })
+// }
+
+// async function demo() {
+//     await colorchange("red", 1000);
+//     await colorchange("pink", 1000);
+//     await colorchange("orange", 1000);
+//     await colorchange("blue", 1000);
+//     colorchange("green", 1000);
+// }
+// demo();
+//if there is a rejection happens then it should be handled else it won't execute next operation in async function
+
+//eg
 let h1 = document.querySelector("h1");
-function changeColor(color, delay)
+
+function colorchange(color, delay)
 {
-    return new Promise((resolve, reject)=>
-    {
-        setTimeout(()=>{
+    return new Promise((resolve, reject)=>{
+        setTimeout(() => {
+            let num = Math.floor(Math.random()*20)+1;
+            if(num < 5)
+            {
+                reject("promise rejected!");
+            }
             h1.style.color = color;
-            resolve("Color changed!");
+            resolve();
         }, delay);
-    });
+    })
 }
 
-changeColor("red", 1000)
-.then((result)=>{
-    console.log(result);
-    return changeColor("orange", 1000);
-})
-.then((result)=>{
-    console.log(result);
-    return changeColor("yellow", 1000);
-})
-.then((result)=>{
-    console.log(result);
-})
+async function demo() {
+    try{
+         await colorchange("red", 1000);
+        await colorchange("pink", 1000);
+        await colorchange("orange", 1000);
+        await colorchange("blue", 1000);
+        await colorchange("green", 1000);
+    }
+    catch(err)
+    {
+        console.log("error!");
+        console.log(err);
+    }
+   
+    let num = 5;
+    console.log(num);
+    console.log(num+2);
+}
+//here even rejection raise the next statements are executed
+demo();
+
+
